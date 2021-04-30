@@ -1,0 +1,41 @@
+﻿@model Ticari_Otomasyon.Models.Classes.Urun
+
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Ürün Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Ad)
+    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Marka)
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.StokAdedi)
+    @Html.TextBoxFor(x => x.StokAdedi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.AlısFiyati)
+    @Html.TextBoxFor(x => x.AlısFiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SatisFiyati)
+    @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Durum)
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kategori.Id)
+    @Html.DropDownListFor(x=>x.KategoriId,(List<SelectListItem >)ViewBag.p2,new {@class="form-control"})
+    @*@Html.TextBoxFor(x => x.KategoriId, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.UrunGorseli)
+    @Html.TextBoxFor(x => x.UrunGorseli, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</form>
+
+

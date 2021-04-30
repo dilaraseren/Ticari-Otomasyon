@@ -1,0 +1,16 @@
+﻿@model Ticari_Otomasyon.Models.Classes.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Kategori Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.KategoriAdi)
+    @Html.TextBoxFor(x=>x.KategoriAdi,new {@class="form-control"})
+
+    <br />
+    <button class="btn btn-warning">Kaydet</button>
+</form>
+

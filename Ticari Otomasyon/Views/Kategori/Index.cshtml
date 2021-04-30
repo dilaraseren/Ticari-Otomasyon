@@ -1,0 +1,42 @@
+﻿@using Ticari_Otomasyon.Models.Classes
+@model List<Kategori>
+
+
+@{
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+}
+
+
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+
+        <th>Id</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>
+                @k.Id
+            </td>
+            <td>
+
+                @k.KategoriAdi
+            </td>
+            <td><a href="/Kategori/KategoriSil/@k.Id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Kategori/KategoriGetir/@k.Id" class="btn  btn-success">Güncelle</a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Kategori/KategoriEkle" class="btn btn-primary">Kategori Ekle</a>
