@@ -14,8 +14,11 @@ namespace Ticari_Otomasyon.Models.Classes
         public int Adet { get; set; }
         public decimal Fiyat { get; set; }
         public decimal ToplamTutar { get; set; }
-        public Urun Urun { get; set; }
-        public Cari Cari { get; set; }
-        public Personel Personel { get; set; }
+        public int UrunId { get; set; }
+        public int CariId { get; set; }
+        public int PersonelId { get; set; }
+        public virtual Urun Urun { get; set; }
+        public virtual Cari Cari { get; set; }
+        public virtual Personel Personel { get; set; }
     }
 }

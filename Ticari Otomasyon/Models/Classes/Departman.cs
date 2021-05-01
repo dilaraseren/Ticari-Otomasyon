@@ -13,6 +13,7 @@ namespace Ticari_Otomasyon.Models.Classes
 
         [StringLength(50)]
         public string DepartmanAd { get; set; }
+        public bool Durum { get; set; }
 
         public ICollection<Personel> Personels { get; set; }
     }
