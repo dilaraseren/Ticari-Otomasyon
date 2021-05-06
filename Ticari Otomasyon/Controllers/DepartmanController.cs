@@ -60,5 +60,13 @@ namespace Ticari_Otomasyon.Controllers
             ViewBag.d = dpt;
             return View(dgr);
         }
+
+        public ActionResult DepartmanPersonelSatis(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.PersonelId == id).ToList();
+            var personel = c.Personels.Where(x => x.Id == id).Select(y => y.Ad +" "+ y.Soyad).FirstOrDefault();
+            ViewBag.dpers = personel;
+            return View(degerler);
+        }
     }
 }
