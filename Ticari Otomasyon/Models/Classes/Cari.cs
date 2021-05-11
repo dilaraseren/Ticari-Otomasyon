@@ -11,7 +11,8 @@ namespace Ticari_Otomasyon.Models.Classes
         [Key]
         public int Id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50,ErrorMessage ="Lütfen en fazla 50 karakter giriniz.")]
+        [Required(ErrorMessage = "Bu alanı boş geçemezsiniz!")]
         public string Ad { get; set; }
 
         [StringLength(50)]
@@ -22,6 +23,7 @@ namespace Ticari_Otomasyon.Models.Classes
 
         [StringLength(100)]
         public string Mail { get; set; }
+        public bool Durum { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
 }

@@ -1,0 +1,43 @@
+﻿@using Ticari_Otomasyon.Models.Classes;
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+
+        <th>#</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+
+
+
+    </tr>
+
+    @foreach (var p in Model)
+    {
+
+<tr>
+    <th> @p.Id </th>
+    <td> @p.Ad </td>
+    <td> @p.Soyad </td>
+    <td> @p.PersonelGorseli </td>
+    <td> @p.Departman.DepartmanAd </td>
+    
+
+    <td><a href="/Personel/PersonelGetir/@p.Id" class="btn btn-warning">Güncelle</a></td>
+    <td><a href="/Departman/DepartmanPersonelSatis/@p.Id" class="btn  btn-primary">Satışlar</a></td>
+
+
+</tr>
+    }
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-dark">Personel Ekle</a>
+
