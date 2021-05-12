@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -27,6 +28,13 @@ namespace Ticari_Otomasyon.Models.Classes
 
         [StringLength(50)]
         public string TeslimAlan { get; set; }
+
+
+        [Column(TypeName = "char")]
+        [StringLength(5)]
+        public string Saat { get; set; }
+
+        public decimal Toplam { get; set; }
 
         public ICollection<FaturaKalem> FaturaKalems { get; set; }
 

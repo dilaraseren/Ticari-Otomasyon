@@ -1,0 +1,35 @@
+﻿@model Ticari_Otomasyon.Models.Classes.Fatura
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Fatura Ekleme Ekranı</h2>
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.SeriNo)
+    @Html.TextBoxFor(x => x.SeriNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SiraNo)
+    @Html.TextBoxFor(x => x.SiraNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Saat)
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.VergiDairesi)
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.TeslimEden)
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TeslimAlan)
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-success">Kaydet</button>
+</form>

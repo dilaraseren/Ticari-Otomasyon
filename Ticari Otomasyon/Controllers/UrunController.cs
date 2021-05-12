@@ -76,6 +76,12 @@ namespace Ticari_Otomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult UrunListesi()
+        {
+            var deger = c.Uruns.ToList();
+            return View(deger);
+        }
      
             
     }   
