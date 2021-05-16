@@ -1,0 +1,41 @@
+﻿@using Ticari_Otomasyon.Models.Classes
+@model List<FaturaKalem>
+
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Kalem Ekranı</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Sıra No - Seri No : @ViewBag.ftrs </li>
+</ol>
+
+<table class=" table table-hover">
+    <tr>
+
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+
+
+        <tr>
+
+            <td> @x.Aciklama </td>
+            <td>   @x.Miktar  </td>
+            <td> @x.BirimFiyat  </td>
+            <td> @x.Tutar  </td>
+
+
+        </tr>
+    }
+    <a href="/Fatura/YeniKalem/" class="btn btn-dark">Fatura Kalem Girişi </a>
+</table>

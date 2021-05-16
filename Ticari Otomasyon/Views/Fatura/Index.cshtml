@@ -25,21 +25,22 @@
     @foreach (var k in Model)
     {
 
-        <tr>
-            <th>@k.Id</th>
-            <td>@k.SeriNo</td>
-            <td>@k.SiraNo</td>
-            <td>@k.VergiDairesi</td>
-            <td>@k.Tarih</td>
-            <td>@k.Saat</td>
-            <td>@k.Toplam</td>
-            <td>@k.TeslimEden</td>
-            <td>@k.TeslimAlan</td>         
-       
-            <td><a href="/Departman/DepartmanGetir/@k.Id" class="btn  btn-warning">Güncelle</a></td>
-            <td><a href="/Departman/DepartmanDetay/@k.Id" class="btn  btn-primary">Detay</a></td>
+<tr>
+    <th>@k.Id</th>
+    <td>@k.SeriNo</td>
+    <td>@k.SiraNo</td>
+    <td>@k.VergiDairesi</td>
+    <td>@k.Tarih</td>
+    <td>@k.Saat</td>
+    <td>@k.Toplam</td>
+    <td>@k.TeslimEden</td>
+    <td>@k.TeslimAlan</td>
 
-        </tr>
+    <td><a href="/Fatura/FaturaGetir/@k.Id" class="btn  btn-warning">Güncelle</a></td>
+    <td><a href="/Fatura/FaturaDetay/@k.Id" class="btn  btn-primary">Detay</a></td>
+   
+
+</tr>
     }
 </table>
 <br />

@@ -1,0 +1,30 @@
+﻿@model Ticari_Otomasyon.Models.Classes.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h2>Fatura Kalem Girişi </h2>
+<br />
+<form class="form-group" method="post">
+    @Html.HiddenFor(x => x.Id)
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Miktar)
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BirimFiyat)
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tutar)
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FaturaId)
+    @Html.TextBoxFor(x => x.FaturaId, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-success">Kaydet</button>
+</form>

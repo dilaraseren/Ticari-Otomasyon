@@ -30,5 +30,52 @@ namespace Ticari_Otomasyon.Controllers
             c.SaveChanges();
             return View();
         }
+
+        public ActionResult FaturaGetir(int id)
+        {
+            var fatura = c.Faturas.Find(id);
+            return View("FaturaGetir", fatura);
+
+        }
+
+        public ActionResult FaturaGuncelle(Fatura f)
+        {
+            var fatura = c.Faturas.Find(f.Id);
+            fatura.SeriNo = f.SeriNo;
+            fatura.SiraNo = f.SiraNo;
+            fatura.Saat = f.Saat;
+            fatura.Tarih = f.Tarih;
+            fatura.TeslimAlan = f.TeslimAlan;
+            fatura.TeslimEden = f.TeslimEden;
+            fatura.VergiDairesi = f.VergiDairesi;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult FaturaDetay(int id)
+        {
+
+            var fatura = c.FaturaKalems.Where(x => x.FaturaId == id).ToList();
+            var ftr = c.Faturas.Where(x => x.Id == id).Select(y => y.SeriNo + " " + y.SiraNo).FirstOrDefault();
+            ViewBag.ftrs = ftr;
+            return View(fatura);
+
+        }
+
+
+        [HttpGet]
+        public ActionResult YeniKalem()
+        {
+            return View();
+        }
+
+      
+        public ActionResult YeniKalem(FaturaKalem p)
+        {
+            c.FaturaKalems.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }
