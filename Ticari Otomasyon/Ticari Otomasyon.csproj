@@ -147,6 +147,7 @@
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Cari.cs" />
     <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\Gider.cs" />
     <Compile Include="Models\Classes\FaturaKalem.cs" />
     <Compile Include="Models\Classes\Fatura.cs" />
@@ -154,7 +155,9 @@
     <Compile Include="Models\Classes\Kategori.cs" />
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareket.cs" />
+    <Compile Include="Models\Classes\SinifGrup.cs" />
     <Compile Include="Models\Classes\Urun.cs" />
+    <Compile Include="Models\Classes\UrunDetay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2836,6 +2839,7 @@
     <Content Include="thumber\scss\_site-blocks.scss" />
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
+    <Content Include="Views\Istatistik\KolayTablolar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
