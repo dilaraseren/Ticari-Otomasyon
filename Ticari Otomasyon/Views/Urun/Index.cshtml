@@ -17,9 +17,9 @@
         <th>Satış Fiyatı</th>
         <th> Durum</th>
         <th> Kategori</th>
-        <th> Ürün Görseli</th>
         <th> Ürün Sil</th>
         <th> Ürün Güncelle</th>
+        <th> Detay</th>
 
 
     </tr>
@@ -36,9 +36,11 @@
             <td> @p.SatisFiyati  ₺ </td>
             <td> @p.Durum </td>
             <td> @p.Kategori.KategoriAdi</td>
-            <td> @p.UrunGorseli </td>
+
+         
             <td><a href="/Urun/UrunSil/@p.Id" class="btn btn-danger">Sil</a></td>
             <td><a href="/Urun/UrunGetir/@p.Id" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/UrunDetay/Index/@p.Id" class="btn btn-info">Detay</a></td>
         </tr>
     }
 </table>

@@ -1,13 +1,13 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace Ticari_Otomasyon.Models.Classes
 {
-    public class SinifGrup
+    public class SinifGrup3
     {
-        public string Sehir { get; set; }
-        public int Sayi { get; set; }
+        public int sayi { get; set; }
+        public string marka { get; set; }
     }
 }

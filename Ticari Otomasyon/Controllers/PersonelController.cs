@@ -63,5 +63,7 @@ namespace Ticari_Otomasyon.Controllers
                 
          }
 
+      
+
     }
 }

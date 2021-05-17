@@ -1,0 +1,36 @@
+﻿@using Ticari_Otomasyon.Models.Classes
+@model List<Kategori>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.Id</td>
+                                <td>@x.KategoriAdi </td>
+                         
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

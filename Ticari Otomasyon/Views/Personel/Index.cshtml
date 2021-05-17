@@ -1,43 +1,122 @@
-﻿@using Ticari_Otomasyon.Models.Classes;
+﻿@using Ticari_Otomasyon.Models.Classes
 @model List<Personel>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PersonelListe";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Contacts</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<table class="table table-bordered" style="margin-top:20px;">
-    <tr>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Personeller</h1>
+                    </div>
 
-        <th>#</th>
-        <th>Personel Adı</th>
-        <th>Personel Soyadı</th>
-        <th>Görsel</th>
-        <th>Departman</th>
-        <th>Güncelle</th>
-        <th>Satışlar</th>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card card-solid">
+                <div class="card-body pb-0">
+                    <div class="row d-flex align-items-stretch">
+                        @foreach (var x in Model)
+                        {
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                                <div class="card bg-light">
+                                    <div class="card-header text-muted border-bottom-0">
+                                        @x.Departman.DepartmanAd Departmanı
+                                    </div>
+                                    <div class="card-body pt-0">
+
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="lead"><b>@x.Ad @x.Soyad</b></h2>
+                                                <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Mail: @x.Mail</li>
+                                                   
+                                                </ul>
+                                            </div>
+                                            <div class="col-5 text-center">
+                                                <img src="@x.PersonelGorseli" alt="" class="img-circle img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="text-right">
+                                            <a href="/Personel/PersonelGetir/@x.Id" class="btn btn-sm bg-teal">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                            <a href="/Departman/DepartmanPersonelSatis/@x.Id" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-user"></i> Satış Geçmişi
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
-    </tr>
-
-    @foreach (var p in Model)
-    {
-
-<tr>
-    <th> @p.Id </th>
-    <td> @p.Ad </td>
-    <td> @p.Soyad </td>
-    <td> @p.PersonelGorseli </td>
-    <td> @p.Departman.DepartmanAd </td>
-    
-
-    <td><a href="/Personel/PersonelGetir/@p.Id" class="btn btn-warning">Güncelle</a></td>
-    <td><a href="/Departman/DepartmanPersonelSatis/@p.Id" class="btn  btn-primary">Satışlar</a></td>
+                        }
 
 
-</tr>
-    }
-</table>
-<a href="/Personel/PersonelEkle/" class="btn btn-dark">Personel Ekle</a>
+
+
+                    </div>
+                </div>
+                <!-- /.card-body -->
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
 
