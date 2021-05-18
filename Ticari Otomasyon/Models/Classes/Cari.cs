@@ -23,6 +23,10 @@ namespace Ticari_Otomasyon.Models.Classes
 
         [StringLength(100)]
         public string Mail { get; set; }
+
+       
+        [StringLength(20)]
+        public string Sifre { get; set; }
         public bool Durum { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }

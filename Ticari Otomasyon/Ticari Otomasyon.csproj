@@ -136,6 +136,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\ToDoController.cs" />
@@ -2343,6 +2344,20 @@
     <Content Include="web2\resimler\book5.jpg" />
     <Content Include="web2\resimler\img1.jpg" />
     <Content Include="web2\w3layouts-License.txt" />
+    <Content Include="weblogin\css\font-awesome.css" />
+    <Content Include="weblogin\css\popup-box.css" />
+    <Content Include="weblogin\css\style.css" />
+    <Content Include="weblogin\fonts\fontawesome-webfont.svg" />
+    <Content Include="weblogin\images\1.jpg" />
+    <Content Include="weblogin\images\bg.jpg" />
+    <Content Include="weblogin\images\images.jfif" />
+    <Content Include="weblogin\images\indir.jfif" />
+    <Content Include="weblogin\images\indir.png" />
+    <Content Include="weblogin\images\siyah-arka-plan-2-buyuk.jpg" />
+    <Content Include="weblogin\index.html" />
+    <Content Include="weblogin\js\jquery-2.1.4.min.js" />
+    <Content Include="weblogin\js\jquery.magnific-popup.js" />
+    <Content Include="weblogin\w3layouts-License.txt" />
     <Content Include="Web\.gitignore" />
     <Content Include="Web\dist\401.html" />
     <Content Include="Web\dist\404.html" />
@@ -2851,6 +2866,14 @@
     <Content Include="Views\Istatistik\Partial4.cshtml" />
     <Content Include="Views\Istatistik\Partial5.cshtml" />
     <Content Include="Views\ToDo\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Partial1.cshtml" />
+    <Content Include="Views\Login\Partial2.cshtml" />
+    <Content Include="weblogin\fonts\fontawesome-webfont.eot" />
+    <Content Include="weblogin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="weblogin\fonts\fontawesome-webfont.woff" />
+    <Content Include="weblogin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="weblogin\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
