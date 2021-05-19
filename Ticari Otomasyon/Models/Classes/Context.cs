@@ -21,5 +21,8 @@ namespace Ticari_Otomasyon.Models.Classes
         public DbSet<Urun> Uruns { get; set; }
         public DbSet<Detay> Detays { get; set; }
         public DbSet<ToDoList> toDoLists { get; set; }
+        public DbSet<Mesaj> Mesajs { get; set; }
+        public DbSet<KargoDetay> KargoDetays { get; set; }
+        public DbSet<KargoTakip> KargoTakips { get; set; }
     }
 }

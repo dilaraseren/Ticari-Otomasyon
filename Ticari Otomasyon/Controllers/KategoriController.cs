@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ticari_Otomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
+
 
 namespace Ticari_Otomasyon.Controllers
 {
@@ -11,9 +14,9 @@ namespace Ticari_Otomasyon.Controllers
     {
         // GET: Kategori
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var degerler = c.Kategoris.ToList();
+            var degerler = c.Kategoris.ToList().ToPagedList(sayfa,5);
             return View(degerler);
         }
 

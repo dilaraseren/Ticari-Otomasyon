@@ -8,6 +8,7 @@ using Ticari_Otomasyon.Models.Classes;
 
 namespace Ticari_Otomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -32,7 +33,7 @@ namespace Ticari_Otomasyon.Controllers
         }
 
         [HttpGet]
-        public ActionResult Partial2CariLogin1()
+        public ActionResult CariLogin1()
         {
             return View();
         }
@@ -44,7 +45,7 @@ namespace Ticari_Otomasyon.Controllers
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.Mail, false);
-                Session["CariMail"] = bilgiler.Mail.ToString();
+                Session["Mail"] = bilgiler.Mail.ToString();
                 return RedirectToAction("Index", "CariPanel");
             }
             else
@@ -65,8 +66,8 @@ namespace Ticari_Otomasyon.Controllers
             if (bilgiler != null)
             {
                 FormsAuthentication.SetAuthCookie(bilgiler.KullaniciAdi, false);
-                Session["KullaniciAd"] = bilgiler.KullaniciAdi.ToString();
-                return RedirectToAction("Index", "Kategori");
+                Session["KullaniciAdi"] = bilgiler.KullaniciAdi.ToString();
+                return RedirectToAction("KolayTablolar", "Istatistik");
 
             }
             else

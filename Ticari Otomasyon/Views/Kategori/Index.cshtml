@@ -1,6 +1,7 @@
 ﻿@using Ticari_Otomasyon.Models.Classes
-@model List<Kategori>
-
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kategori>
 
 @{
     ViewBag.Title = "Index";
@@ -39,4 +40,13 @@
     }
 </table>
 <br />
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+
+    LiElementClasses = new List<string>
+    { "page-link"}
+})
+
+
 <a href="/Kategori/KategoriEkle" class="btn btn-dark">Kategori Ekle</a>
