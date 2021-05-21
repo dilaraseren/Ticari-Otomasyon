@@ -5,11 +5,18 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Adı : @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
 <table class="table table-bordered" style="margin-top:20px;">
     <tr>
 
-        <th>#</th>
+       
         <th>Ürün Adı</th>
         <th>Marka</th>
         <th>Stok Adedi</th>
@@ -28,7 +35,7 @@
     {
 
         <tr>
-            <th> @p.Id </th>
+          
             <td> @p.Ad </td>
             <td> @p.Marka </td>
             <td> @p.StokAdedi </td>

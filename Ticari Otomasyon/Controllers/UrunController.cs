@@ -11,10 +11,14 @@ namespace Ticari_Otomasyon.Controllers
     {
         // GET: Urun
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var p = c.Uruns.Where(x=>x.Durum==true).ToList();
-            return View(p);
+            var urunler = from x in c.Uruns select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                urunler = urunler.Where(y => y.Ad.Contains(p));
+            }
+            return View(urunler.ToList());
         }
 
         [HttpGet]

@@ -5,21 +5,25 @@
 }
 
 <h2>Personel Ekleme Sayfası</h2>
-<form class="form-group" method="post">
-    @Html.LabelFor(x => x.Ad)
-    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x.Soyad)
-    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x.PersonelGorseli)
-    @Html.TextBoxFor(x => x.PersonelGorseli, new { @class = "form-control" })
-    <br />
- 
-    @Html.LabelFor(x => x.Departman)
-    @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.p2, new { @class = "form-control" })
-   
-    <br />
-    
-    <button class="btn btn-success">Kaydet</button>
-</form>
+
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.Ad)
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Soyad)
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.PersonelGorseli)
+        @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control" })*@
+        <input type="file" name="PersonelGorsel" />
+        <br />
+        @Html.LabelFor(x => x.Departman)
+        @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control" })*@
+        <br />
+        <button class=" btn btn-primary">Kaydet</button>
+    </form>
+
+}
