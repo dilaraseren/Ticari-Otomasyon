@@ -7,7 +7,7 @@ namespace Ticari_Otomasyon.Models.Classes
         [Key]
         public int DetayId{ get; set; }
        
-        [StringLength(30)]
+        [StringLength(200)]
         public string UrunAd { get; set; }
 
         [StringLength(2000)]

@@ -4,7 +4,8 @@
     ViewBag.Title = "YeniUrun";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 
 <h2>Yeni Ürün Sayfası</h2>
@@ -29,13 +30,19 @@
     @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Kategori.Id)
-    @Html.DropDownListFor(x=>x.KategoriId,(List<SelectListItem >)ViewBag.p2,new {@class="form-control"})
+    @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.p2, new { @class = "form-control" })
     @*@Html.TextBoxFor(x => x.KategoriId, new { @class = "form-control" })*@
     <br />
     @Html.LabelFor(x => x.UrunGorseli)
     @Html.TextBoxFor(x => x.UrunGorseli, new { @class = "form-control" })
     <br />
-    <button class="btn btn-success">Kaydet</button>
+    <button class="btn btn-success" id="btn3">Kaydet</button>
+
+    <script>
+        $('#btn3').click(function () {
+            swal("İşlem Başarılı!", "Ürün eklendi!", "success");
+        });
+    </script>
 </form>
 
 

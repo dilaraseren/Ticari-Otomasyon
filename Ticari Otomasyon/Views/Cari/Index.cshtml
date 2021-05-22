@@ -9,7 +9,7 @@
 <table class="table table-striped">
     <tr>
 
-        
+        <th>Cari Kodu </th>
         <th>Ad</th>
         <th>Soyad</th>
         <th>Şehir</th>
@@ -24,15 +24,15 @@
     {
 
         <tr>
-           
+            <td>@k.Id</td>
             <td> @k.Ad</td>
             <td> @k.Soyad</td>
             <td> @k.Sehir</td>
             <td> @k.Mail</td>
-           
+
             <td><a href="/Cari/CariSil/@k.Id" class="btn btn-danger">Sil</a></td>
             <td><a href="/Cari/CariGetir/@k.Id" class="btn  btn-warning">Güncelle</a></td>
-            <td><a href="/Cari/MusteriSatis/@k.Id"class=" btn btn-default" style= "background-color:lightseagreen">Satış Geçmişi</a></td>
+            <td><a href="/Cari/MusteriSatis/@k.Id" class=" btn btn-default" style="background-color:lightseagreen">Satış Geçmişi</a></td>
 
         </tr>
     }

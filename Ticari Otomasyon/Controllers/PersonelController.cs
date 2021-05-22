@@ -21,14 +21,15 @@ namespace Ticari_Otomasyon.Controllers
         [HttpGet]
         public ActionResult PersonelEkle()
         {
-            List<SelectListItem> p1 = (from x in c.Departmen.ToList()
-                                       select new SelectListItem
-                                       {
-                                           Text = x.DepartmanAd,
-                                           Value = x.Id.ToString()
-                                       }).ToList();
-            ViewBag.p2 = p1;
+            List<SelectListItem> deger1 = (from x in c.Departmen.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.DepartmanAd,
+                                               Value = x.Id.ToString()
+                                           }).ToList();
+            ViewBag.dgr1 = deger1;
             return View();
+            
         }
         [HttpPost]
         public ActionResult PersonelEkle(Personel p)
@@ -37,9 +38,9 @@ namespace Ticari_Otomasyon.Controllers
             {
                 string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
                 string uzanti = Path.GetExtension(Request.Files[0].FileName);
-                string yol = "~/Image/" + dosyaadi + uzanti;
+                string yol = "~/Images/" + dosyaadi + uzanti;
                 Request.Files[0].SaveAs(Server.MapPath(yol));
-                p.PersonelGorseli = "/Image/" + dosyaadi + uzanti;
+                p.PersonelGorseli = "/Images/" + dosyaadi + uzanti;
             }
             c.Personels.Add(p);
             c.SaveChanges();
@@ -61,6 +62,14 @@ namespace Ticari_Otomasyon.Controllers
 
         public ActionResult PersonelGuncelle(Personel p)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/Images/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                p.PersonelGorseli = "/Images/" + dosyaadi + uzanti;
+            }
             var prs = c.Personels.Find(p.Id);
             prs.Ad = p.Ad;
             prs.Soyad = p.Soyad;

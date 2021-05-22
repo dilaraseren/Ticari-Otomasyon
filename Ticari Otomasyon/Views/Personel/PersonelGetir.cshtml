@@ -8,7 +8,7 @@
 
 <h2>Personel Güncelleme Sayfası</h2>
 <br />
-@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
 <div class="form-group">
@@ -19,14 +19,18 @@
     @Html.LabelFor(x => x.Soyad)
     @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
     <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
     @Html.LabelFor(x => x.PersonelGorseli)
-    @Html.TextBoxFor(x => x.PersonelGorseli, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.PersonelGorseli, new { @class = "form-control" })*@
     <br />
     @Html.LabelFor(x => x.Departman)
     @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
     <br />
+    <input type="file" name="PersonelGorseli" />
     <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
-
+    
 </div>
 
 }

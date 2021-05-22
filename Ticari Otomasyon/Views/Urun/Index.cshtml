@@ -5,18 +5,21 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 @using (Html.BeginForm("Index", "Urun", FormMethod.Get))
 {
     <p>
         Ürün Adı : @Html.TextBox("p")
-        <input type="submit" value="Ara"/>
+        <input type="submit" value="Ara" />
     </p>
 }
 <table class="table table-bordered" style="margin-top:20px;">
     <tr>
 
-       
+
         <th>Ürün Adı</th>
         <th>Marka</th>
         <th>Stok Adedi</th>
@@ -27,6 +30,8 @@
         <th> Ürün Sil</th>
         <th> Ürün Güncelle</th>
         <th> Detay</th>
+        <th> Satış Yap</th>
+ 
 
 
     </tr>
@@ -35,7 +40,7 @@
     {
 
         <tr>
-          
+
             <td> @p.Ad </td>
             <td> @p.Marka </td>
             <td> @p.StokAdedi </td>
@@ -44,10 +49,11 @@
             <td> @p.Durum </td>
             <td> @p.Kategori.KategoriAdi</td>
 
-         
+
             <td><a href="/Urun/UrunSil/@p.Id" class="btn btn-danger">Sil</a></td>
             <td><a href="/Urun/UrunGetir/@p.Id" class="btn btn-warning">Güncelle</a></td>
             <td><a href="/UrunDetay/Index/@p.Id" class="btn btn-info">Detay</a></td>
+            <td><a href="/Urun/SatisYap/@p.Id" class="btn btn-default" style="background-color:cornflowerblue">Satış Yap</a></td>
         </tr>
     }
 </table>

@@ -25,11 +25,11 @@ namespace Ticari_Otomasyon.Controllers
         public ActionResult YeniUrun()
         {
             List<SelectListItem> p1 = (from x in c.Kategoris.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.KategoriAdi,
-                                               Value = x.Id.ToString()
-                                           }).ToList();
+                                       select new SelectListItem
+                                       {
+                                           Text = x.KategoriAdi,
+                                           Value = x.Id.ToString()
+                                       }).ToList();
             ViewBag.p2 = p1;
             return View();
 
@@ -52,7 +52,7 @@ namespace Ticari_Otomasyon.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult UrunGetir(int id) 
+        public ActionResult UrunGetir(int id)
         {
             List<SelectListItem> p1 = (from x in c.Kategoris.ToList()
                                        select new SelectListItem
@@ -66,7 +66,7 @@ namespace Ticari_Otomasyon.Controllers
         }
 
 
-        public ActionResult UrunGuncelle(Urun p) 
+        public ActionResult UrunGuncelle(Urun p)
         {
             var urun = c.Uruns.Find(p.Id);
             urun.UrunGorseli = p.UrunGorseli;
@@ -86,7 +86,36 @@ namespace Ticari_Otomasyon.Controllers
             var deger = c.Uruns.ToList();
             return View(deger);
         }
-     
-            
-    }   
+
+
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+
+            List<SelectListItem> deger3 = (from x in c.Personels.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Ad + " " + x.Soyad,
+                                               Value = x.Id.ToString()
+                                           }).ToList();
+
+            ViewBag.dgr3 = deger3;
+            var deger1 = c.Uruns.Find(id);
+
+            ViewBag.dgr1 = deger1.Id;
+            ViewBag.dgr2 = deger1.SatisFiyati;
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket p)
+        {
+            p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.SatisHarekets.Add(p);
+            c.SaveChanges();
+            return RedirectToAction("Index", "Satis");
+        }
+    }
 }

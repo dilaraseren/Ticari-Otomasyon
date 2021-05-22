@@ -10,6 +10,7 @@ namespace Ticari_Otomasyon.Models.Classes
     {
         [Key]
         public int Id { get; set; }
+
         [StringLength(50)]
         public string Ad { get; set; }
 
