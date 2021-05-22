@@ -55,11 +55,17 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>D:\SEREN\Desktop\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -114,9 +120,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -141,12 +144,14 @@
     <Compile Include="Controllers\DepartmanController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
+    <Compile Include="Controllers\GrafikController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IstatistikController.cs" />
     <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\ToDoController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
@@ -169,6 +174,8 @@
     <Compile Include="Models\Classes\Mesaj.cs" />
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareket.cs" />
+    <Compile Include="Models\Classes\Sinif1.cs" />
+    <Compile Include="Models\Classes\sinif2.cs" />
     <Compile Include="Models\Classes\SinifGrup.cs" />
     <Compile Include="Models\Classes\SinifGrup2.cs" />
     <Compile Include="Models\Classes\SinifGrup3.cs" />
@@ -2933,6 +2940,13 @@
     <Content Include="Views\Kargo\Index.cshtml" />
     <Content Include="Views\Kargo\YeniKargo.cshtml" />
     <Content Include="Views\Kargo\KargoTakip.cshtml" />
+    <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Grafik\Index.cshtml" />
+    <Content Include="Views\Grafik\Index2.cshtml" />
+    <Content Include="Views\Grafik\Index3.cshtml" />
+    <Content Include="Views\Grafik\Index4.cshtml" />
+    <Content Include="Views\Grafik\Index5.cshtml" />
+    <Content Include="Views\Grafik\Index6.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
