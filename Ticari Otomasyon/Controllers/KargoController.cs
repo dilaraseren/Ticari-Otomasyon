@@ -5,16 +5,21 @@ using System.Web;
 using System.Web.Mvc;
 using Ticari_Otomasyon.Models.Classes;
 
-namespace Ticari_Otomasyon.Content
+namespace Ticari_Otomasyon.Controllers
 {
     public class KargoController : Controller
     {
         // GET: Kargo
+
         Context c = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var kargolar = c.KargoDetays.ToList();
-            return View(kargolar);
+            var k = from x in c.KargoDetays select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                k = k.Where(y => y.TakipKodu.Contains(p));
+            }
+            return View(k.ToList());
         }
 
         [HttpGet]
@@ -34,6 +39,9 @@ namespace Ticari_Otomasyon.Content
             string kod = s1.ToString() + karakterler[k1] + s2 + karakterler[k2] + s3 + karakterler[k3];
             ViewBag.takipkod = kod;
 
+
+
+
             return View();
         }
 
@@ -44,6 +52,16 @@ namespace Ticari_Otomasyon.Content
             c.KargoDetays.Add(d);
             c.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+
+        public ActionResult KargoTakip(string id)
+        {
+            //p = "454D42B23D";
+            var degerler = c.KargoTakips.Where(x => x.TakipKodu == id).ToList();
+
+            return View(degerler);
         }
     }
 }
