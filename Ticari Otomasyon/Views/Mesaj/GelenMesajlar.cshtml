@@ -1,13 +1,9 @@
 ﻿@using Ticari_Otomasyon.Models.Classes
 @model List<Mesaj>
 @{
-
     ViewBag.Title = "GelenMesajlar";
-
-    Layout = "~/Views/Shared/_CariLayout.cshtml";
-
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
 
 <!DOCTYPE html>
 
@@ -81,7 +77,7 @@
 
             <div class="col-md-3">
 
-                <a href="/CariPanel/YeniMesaj/" class="btn btn-primary btn-block mb-3">+ Yeni Mesaj</a>
+                <a href="/Mesaj/YeniMesaj/" class="btn btn-primary btn-block mb-3">+ Yeni Mesaj</a>
 
                 <div class="card">
 
@@ -107,7 +103,7 @@
 
                             <li class="nav-item active">
 
-                                <a href="/CariPanel/GelenMesajlar/" class="nav-link">
+                                <a href="/Mesaj/GelenMesajlar/" class="nav-link">
 
                                     <i class="fas fa-inbox"></i> Gelen Kutusu
 
@@ -119,7 +115,7 @@
 
                             <li class="nav-item">
 
-                                <a href="/CariPanel/GidenMesajlar/" class="nav-link">
+                                <a href="/Mesaj/GidenMesajlar/" class="nav-link">
 
                                     <i class="far fa-envelope"></i> Gönderilmiş Postalar
                                     <span class="badge bg-danger float-right">@ViewBag.d2</span>
@@ -347,7 +343,7 @@
 
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                            <td class="mailbox-name"><a href="/CariPanel/MesajDetay/@x.MesajId">@x.Gönderici</a></td>
+                                            <td class="mailbox-name"><a href="/Mesaj/MesajDetay/@x.MesajId">@x.Gönderici</a></td>
 
                                             <td class="mailbox-subject">
 
@@ -442,9 +438,6 @@
 
 
     <!-- /.content-wrapper -->
-
-    
-
     <!-- Control Sidebar -->
 
     <aside class="control-sidebar control-sidebar-dark">
@@ -546,6 +539,3 @@
 </body>
 
 </html>
-
-
-

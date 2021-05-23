@@ -28,7 +28,6 @@ namespace Ticari_Otomasyon.Models.Classes
         [StringLength(2000)]
         public string icerik { get; set; }
 
-        [Column(TypeName = "Smalldatetime")]
 
         public DateTime Tarih { get; set; }
     }

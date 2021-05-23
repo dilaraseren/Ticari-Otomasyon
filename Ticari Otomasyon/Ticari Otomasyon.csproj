@@ -2947,10 +2947,11 @@
     <Content Include="Views\CariPanel\GelenMesajlar.cshtml" />
     <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
     <Content Include="Views\CariPanel\MesajDetay.cshtml" />
+    <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
+    <Content Include="Views\Mesaj\GelenMesajlar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Mesaj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
