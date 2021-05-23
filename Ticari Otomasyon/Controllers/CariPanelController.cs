@@ -29,6 +29,43 @@ namespace Ticari_Otomasyon.Controllers
             return View(degerler);
         }
 
+        public ActionResult GelenMesajlar()
+        {
+            var mail = (string)Session["Mail"];
+            var mesajlar = c.Mesajs.Where(x => x.Alıcı == mail).ToList();
+            var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
+            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
+            ViewBag.d1 = gelensayisi;
+            ViewBag.d2 = gidensayisi;
+            return View(mesajlar);
+        }
+
+        public ActionResult GidenMesajlar()
+        {
+            var mail = (string)Session["Mail"];
+            var mesajlar = c.Mesajs.Where(x => x.Gönderici == mail).ToList();
+            var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
+            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
+            ViewBag.d1 = gelensayisi;
+            ViewBag.d2 = gidensayisi;
+            return View(mesajlar);
+        }
+
+        public ActionResult MesajDetay()
+        {
+            return View();
+        }
+        //[HttpGet]
+        //public ActionResult YeniMesaj()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult YeniMesaj()
+        //{
+        //    return View();
+        //}
+
 
     }
 }

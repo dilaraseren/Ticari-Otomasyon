@@ -150,6 +150,7 @@
     <Compile Include="Controllers\KargoController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MesajController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Cari.cs" />
+    <Compile Include="Models\Classes\Chart.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\Gider.cs" />
@@ -174,8 +176,6 @@
     <Compile Include="Models\Classes\Mesaj.cs" />
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareket.cs" />
-    <Compile Include="Models\Classes\Sinif1.cs" />
-    <Compile Include="Models\Classes\sinif2.cs" />
     <Compile Include="Models\Classes\SinifGrup.cs" />
     <Compile Include="Models\Classes\SinifGrup2.cs" />
     <Compile Include="Models\Classes\SinifGrup3.cs" />
@@ -2941,15 +2941,16 @@
     <Content Include="Views\Kargo\YeniKargo.cshtml" />
     <Content Include="Views\Kargo\KargoTakip.cshtml" />
     <Content Include="Views\QR\Index.cshtml" />
-    <Content Include="Views\Grafik\Index.cshtml" />
-    <Content Include="Views\Grafik\Index2.cshtml" />
-    <Content Include="Views\Grafik\Index3.cshtml" />
-    <Content Include="Views\Grafik\Index4.cshtml" />
-    <Content Include="Views\Grafik\Index5.cshtml" />
-    <Content Include="Views\Grafik\Index6.cshtml" />
+    <Content Include="Views\Grafik\GoogleChart.cshtml" />
+    <Content Include="Views\Grafik\GoogleChart1.cshtml" />
+    <Content Include="Views\Grafik\GoogleChart2.cshtml" />
+    <Content Include="Views\CariPanel\GelenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\MesajDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Mesaj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
