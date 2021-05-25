@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CariController.cs" />
     <Compile Include="Controllers\CariPanelController.cs" />
     <Compile Include="Controllers\DepartmanController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\GaleriController.cs" />
     <Compile Include="Controllers\GrafikController.cs" />
@@ -162,8 +163,10 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Cari.cs" />
+    <Compile Include="Models\Classes\Cascading.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\Detay.cs" />
+    <Compile Include="Models\Classes\Dinamik.cs" />
     <Compile Include="Models\Classes\Gider.cs" />
     <Compile Include="Models\Classes\FaturaKalem.cs" />
     <Compile Include="Models\Classes\Fatura.cs" />
@@ -184,6 +187,7 @@
     <Compile Include="Models\Classes\Urun.cs" />
     <Compile Include="Models\Classes\UrunDetay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.0.4\.gitignore" />
@@ -2185,8 +2189,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\fsdfss.jpg.jpg" />
+    <Content Include="Images\indir %281%29.png" />
     <Content Include="Images\man.jpg.jpg" />
     <Content Include="Images\mand-holding-cup_1258-340.jpg.jpg" />
+    <Content Include="Images\unnamed.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -2955,6 +2961,9 @@
     <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
     <Content Include="Views\CariPanel\Partial1.cshtml" />
     <Content Include="Views\CariPanel\Partial2.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Kategori\Deneme.cshtml" />
+    <Content Include="Views\Fatura\Dinamik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

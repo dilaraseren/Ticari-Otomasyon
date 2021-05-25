@@ -22,7 +22,7 @@ namespace Ticari_Otomasyon.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Benimle iletişime geçin.";
 
             return View();
         }

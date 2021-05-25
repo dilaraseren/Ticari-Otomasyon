@@ -77,5 +77,40 @@ namespace Ticari_Otomasyon.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult Dinamik()
+        {
+            Dinamik d = new Dinamik();
+            d.deger1 = c.Faturas.ToList();
+            d.deger2 = c.FaturaKalems.ToList();
+            return View(d);
+        }
+
+        public ActionResult FaturaKaydet(string SeriNo, string SiraNo, DateTime Tarih, string VergiDairesi,
+            string Saat, string TeslimEden, string TeslimAlan, string Toplam, FaturaKalem[] kalemler)
+        {
+            Fatura f = new Fatura();
+            f.SeriNo = SeriNo;
+            f.SiraNo = SiraNo;
+            f.Tarih = Tarih;
+            f.VergiDairesi = VergiDairesi;
+            f.Saat = Saat;
+            f.TeslimEden = TeslimEden;
+            f.TeslimAlan = TeslimAlan;
+            f.Toplam = decimal.Parse(Toplam);
+            c.Faturas.Add(f);
+            foreach (var x in kalemler)
+            {
+                FaturaKalem fk = new FaturaKalem();
+                fk.Aciklama = x.Aciklama;
+                fk.BirimFiyat = x.BirimFiyat;
+                fk.FaturaId = x.Id;
+                fk.Miktar = x.Miktar;
+                fk.Tutar = x.Tutar;
+                c.FaturaKalems.Add(fk);
+            }
+            c.SaveChanges();
+            return Json("İşlem Başarılı", JsonRequestBehavior.AllowGet);
+        }
     }
 }

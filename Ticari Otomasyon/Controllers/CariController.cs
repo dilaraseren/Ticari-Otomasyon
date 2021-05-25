@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -49,7 +50,6 @@ namespace Ticari_Otomasyon.Controllers
         }
         public ActionResult CariGuncelle(Cari p)
         {
-
             if (!ModelState.IsValid)
             {
                 return View("CariGetir");

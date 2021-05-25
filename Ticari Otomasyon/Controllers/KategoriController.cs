@@ -56,5 +56,28 @@ namespace Ticari_Otomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Deneme()
+        {
+            Cascading cs = new Cascading();
+            cs.Kategoriler = new SelectList(c.Kategoris, "Id", "KategoriAdi");
+            cs.Urunler = new SelectList(c.Uruns, "Id", "Ad");
+            return View(cs);
+        }
+
+        public JsonResult UrunGetir(int p)
+        {
+            var urunlistesi = (from x in c.Uruns
+                               join y in c.Kategoris
+                               on x.Kategori.Id equals y.Id
+                               where x.Kategori.Id == p
+                               select new
+                               {
+                                   Text = x.Ad,
+                                   Value = x.Id.ToString()
+                               }).ToList();
+
+            return Json(urunlistesi, JsonRequestBehavior.AllowGet);
+        }
     }
 }

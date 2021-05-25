@@ -29,6 +29,13 @@ namespace Ticari_Otomasyon.Controllers
             ViewBag.toplamurunsayisi = toplamurunsayisi;
             var adsoyad = c.Caris.Where(x => x.Mail == mail).Select(y => y.Ad + " " + y.Soyad).FirstOrDefault();
             ViewBag.adsoyad = adsoyad;
+            var meslek = c.Caris.Where(x => x.Mail == mail).Select(y => y.Meslek).FirstOrDefault();
+            ViewBag.meslek = meslek;
+            var sehir = c.Caris.Where(x => x.Mail == mail).Select(y => y.Sehir).FirstOrDefault();
+            ViewBag.sehir = sehir;
+            var telefon = c.Caris.Where(x => x.Mail == mail).Select(y => y.Telefon).FirstOrDefault();
+            ViewBag.telefon = telefon;   
+
             return View(values);
         }
 
