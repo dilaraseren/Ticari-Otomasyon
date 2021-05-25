@@ -1,0 +1,46 @@
+﻿@using Ticari_Otomasyon.Models.Classes
+@model List<Mesaj>
+
+@foreach (var c in Model)
+{
+    <div class="timeline timeline-inverse">
+
+        <!-- timeline time label -->
+
+        <div class="time-label">
+
+            <span class="bg-warning">
+
+                @c.Tarih.ToShortDateString()
+
+            </span>
+
+        </div>
+
+        <!-- /.timeline-label -->
+        <!-- timeline item -->
+
+        <div>
+
+            <i class="fas fa-envelope bg-primary"></i>
+
+            <div class="timeline-item">
+
+
+                <h3 class="timeline-header"><a href="#">@c.Konu</a></h3>
+
+                <div class="timeline-body">
+
+                   @c.icerik
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+
+}
