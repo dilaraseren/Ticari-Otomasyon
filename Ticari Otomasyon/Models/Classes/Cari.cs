@@ -21,13 +21,22 @@ namespace Ticari_Otomasyon.Models.Classes
         [StringLength(20)]
         public string Sehir { get; set; }
 
+        [StringLength(20)]
+        public string Meslek { get; set; }
+
         [StringLength(100)]
         public string Mail { get; set; }
 
        
         [StringLength(20)]
         public string Sifre { get; set; }
+
+        [StringLength(20)]
+        public string Telefon { get; set; }
         public bool Durum { get; set; }
+
+        [StringLength(50)]
+        public string CariGorseli { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
     }
 }

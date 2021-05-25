@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Ticari_Otomasyon.Models.Classes;
 
 namespace Ticari_Otomasyon.Controllers
@@ -10,14 +11,22 @@ namespace Ticari_Otomasyon.Controllers
     public class CariPanelController : Controller
     {
         // GET: CariPanel
-        Context c = new Context(); 
+        Context c = new Context();
 
         [Authorize]
         public ActionResult Index()
         {
             var mail = (string)Session["Mail"];
-            var values = c.Caris.FirstOrDefault(x => x.Mail == mail);
+            var values = c.Caris.Where(x => x.Mail == mail).ToList();
             ViewBag.m = mail;
+            var mailid = c.Caris.Where(x => x.Mail == mail).Select(y => y.Id).FirstOrDefault();
+            ViewBag.mid = mailid;
+            var toplamsatis = c.SatisHarekets.Where(x => x.CariId == mailid).Count();
+            ViewBag.toplamsatis = toplamsatis;
+            var toplamtutar = c.SatisHarekets.Where(x => x.CariId == mailid).Sum(y => (decimal?)y.ToplamTutar);
+            ViewBag.toplamtutar = toplamtutar;
+            var toplamurunsayisi = c.SatisHarekets.Where(x => x.CariId == mailid).Sum(y => y.Adet);
+            ViewBag.toplamurunsayisi = toplamurunsayisi;
             return View(values);
         }
 
@@ -32,10 +41,10 @@ namespace Ticari_Otomasyon.Controllers
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["Mail"];
-            var mesajlar = c.Mesajs.Where(x => x.Alıcı == mail).OrderByDescending(x=>x.Tarih).ToList();
+            var mesajlar = c.Mesajs.Where(x => x.Alıcı == mail).OrderByDescending(x => x.MesajId).ToList();
             var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
-            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d1 = gelensayisi;
+            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d2 = gidensayisi;
             return View(mesajlar);
         }
@@ -43,10 +52,10 @@ namespace Ticari_Otomasyon.Controllers
         public ActionResult GidenMesajlar()
         {
             var mail = (string)Session["Mail"];
-            var mesajlar = c.Mesajs.Where(x => x.Gönderici == mail).OrderByDescending(x => x.Tarih).ToList();
+            var mesajlar = c.Mesajs.Where(x => x.Gönderici == mail).OrderByDescending(x => x.MesajId).ToList();
             var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
-            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d1 = gelensayisi;
+            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d2 = gidensayisi;
             return View(mesajlar);
         }
@@ -56,16 +65,17 @@ namespace Ticari_Otomasyon.Controllers
             var degerler = c.Mesajs.Where(x => x.MesajId == id).ToList();
             var mail = (string)Session["Mail"];
             var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
-            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d1 = gelensayisi;
+            var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
             ViewBag.d2 = gidensayisi;
             return View(degerler);
         }
 
+
         [HttpGet]
         public ActionResult YeniMesaj()
         {
-            var mail = (string)Session["CariMail"];
+            var mail = (string)Session["Mail"];
             var gelensayisi = c.Mesajs.Count(x => x.Alıcı == mail).ToString();
             ViewBag.d1 = gelensayisi;
             var gidensayisi = c.Mesajs.Count(x => x.Gönderici == mail).ToString();
@@ -77,14 +87,33 @@ namespace Ticari_Otomasyon.Controllers
         [HttpPost]
         public ActionResult YeniMesaj(Mesaj m)
         {
-            var mail = (string)Session["CariMail"];
+            var mail = (string)Session["Mail"];
             m.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
             m.Gönderici = mail;
-
             c.Mesajs.Add(m);
             c.SaveChanges();
             return View();
         }
 
+        public ActionResult KargoTakip(string p)
+        {
+            var k = from x in c.KargoDetays select x;
+
+            k = k.Where(y => y.TakipKodu.Contains(p));
+
+            return View(k.ToList());
+        }
+
+        public ActionResult CariKargoTakip(string id)
+        {
+            var degerler = c.KargoTakips.Where(x => x.TakipKodu == id).ToList();
+            return View(degerler);
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

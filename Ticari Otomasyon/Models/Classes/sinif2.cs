@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Ticari_Otomasyon.Models.Classes
 {
-    public class Chart
+    public class sinif2
     {
-        public string urunad { get; set; }
-        public short stok { get; set; }
+        public string urn { get; set; }
+        public int stk { get; set; }
     }
 }
