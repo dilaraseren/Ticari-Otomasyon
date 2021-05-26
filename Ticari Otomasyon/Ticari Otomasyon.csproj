@@ -2951,12 +2951,6 @@
     <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
     <Content Include="Views\CariPanel\MesajDetay.cshtml" />
     <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
-    <Content Include="Views\Grafik\Index.cshtml" />
-    <Content Include="Views\Grafik\Index2.cshtml" />
-    <Content Include="Views\Grafik\Index3.cshtml" />
-    <Content Include="Views\Grafik\Index4.cshtml" />
-    <Content Include="Views\Grafik\Index5.cshtml" />
-    <Content Include="Views\Grafik\Index6.cshtml" />
     <Content Include="Views\CariPanel\KargoTakip.cshtml" />
     <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
     <Content Include="Views\CariPanel\Partial1.cshtml" />
@@ -2964,6 +2958,13 @@
     <Content Include="Views\Error\PageError.cshtml" />
     <Content Include="Views\Kategori\Deneme.cshtml" />
     <Content Include="Views\Fatura\Dinamik.cshtml" />
+    <Content Include="Views\Grafik\Index.cshtml" />
+    <Content Include="Views\Grafik\Index2.cshtml" />
+    <Content Include="Views\Grafik\Index3.cshtml" />
+    <Content Include="Views\Grafik\Index4.cshtml" />
+    <Content Include="Views\Grafik\Index5.cshtml" />
+    <Content Include="Views\Grafik\Index6.cshtml" />
+    <Content Include="Views\Grafik\Index7.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,12 +3,12 @@
     ViewBag.Title = "Index4";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
+    @*//GOOGLE CHARTS//*@
 
     <title>Result Visualization</title>
 
@@ -16,8 +16,8 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
     <script>
         $(document).ready(function () {
@@ -25,7 +25,7 @@
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-                url: '@Url.Action("VisualizeUrunResult", "Grafik")';
+                url: '@Url.Action("VisualizeUrunResult", "Grafik")',
                 success: function (result) {
                     google.charts.load('current', {
                         'packages': ['corechart']
@@ -46,13 +46,13 @@
             });
             data.addRows(dataArray);
             var columnChartOptions = {
-                title: "Ürün-Stok Grafiği",
+                title: "Ürün - Stok Grafiği",
                 width: 1000,
                 height: 400,
                 bar: { groupWidth: "20%" },
             };
-            var columnChart = new google.visualization.LineChart(document
-                .getElementById('Linechar_div'));
+            var columnChart = new google.visualization.PieChart(document
+                .getElementById('Piechart_div'));
             columnChart.draw(data, columnChartOptions);
         }
     </script>
@@ -61,7 +61,7 @@
 
 <body>
 
-    <div id="Linechar_div"></div>
+    <div id="Piechart_div"></div>
 
 
 
