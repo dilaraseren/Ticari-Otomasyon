@@ -24,6 +24,9 @@ namespace Ticari_Otomasyon.Models.Classes
         [StringLength(100)]
         public string Mail { get; set; }
 
+        [StringLength(200)]
+        public string About { get; set; }
+
         public ICollection<SatisHareket> SatisHarekets { get; set; }
         public int DepartmanId { get; set; }
         public virtual Departman Departman { get; set; }
