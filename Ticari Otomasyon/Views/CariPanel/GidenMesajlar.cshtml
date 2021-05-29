@@ -1,12 +1,12 @@
 ﻿@using Ticari_Otomasyon.Models.Classes
 @model List<Mesaj>
+
+
 @{
-
     ViewBag.Title = "GidenMesajlar";
-
     Layout = "~/Views/Shared/_CariLayout.cshtml";
-
 }
+
 
 
 <!DOCTYPE html>
@@ -63,9 +63,11 @@
 
                 <div class="col-sm-6">
 
-                    <h1>Gönderilmiş Postalar</h1>
+                    <h1>Mesaj Kutusu</h1>
 
                 </div>
+
+
 
             </div>
 
@@ -81,7 +83,7 @@
 
             <div class="col-md-3">
 
-                <a href="compose.html" class="btn btn-primary btn-block mb-3">+ Yeni Mesaj</a>
+                <a href="/CariPanel/YeniMesaj/" class="btn btn-primary btn-block mb-3">+Yeni Mesaj </a>
 
                 <div class="card">
 
@@ -121,9 +123,8 @@
 
                                 <a href="/CariPanel/GidenMesajlar/" class="nav-link">
 
-                                    <i class="far fa-envelope"></i> Gönderilmiş Postalar
+                                    <i class="far fa-envelope"></i> Gönderdiğim Mesajlar
                                     <span class="badge bg-danger float-right">@ViewBag.d2</span>
-
 
                                 </a>
 
@@ -133,8 +134,8 @@
 
                                 <a href="#" class="nav-link">
 
-                                    <i class="fas fa-file"></i> Taslaklar
-                                    <span class="badge bg-danger float-right">0</span>
+                                    <i class="far fa-file-alt"></i> Taslaklar
+                                    <span class="badge bg-fuchsia float-right">0</span>
 
                                 </a>
 
@@ -177,7 +178,7 @@
 
                     <div class="card-header">
 
-                        <h3 class="card-title">Filtre</h3>
+                        <h3 class="card-title">Filtreler</h3>
 
                         <div class="card-tools">
 
@@ -201,7 +202,7 @@
 
                                     <i class="far fa-circle text-danger"></i>
 
-                                    Önemli Mesajlar
+                                    Önemliler
 
                                 </a>
 
@@ -347,11 +348,11 @@
 
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
 
-                                            <td class="mailbox-name"><a href="/CariPanel/MesajDetay/@x.MesajId">@x.Alıcı</a></td>
+                                            <td class="mailbox-name"><a href="read-mail.html">@x.Alıcı</a></td>
 
                                             <td class="mailbox-subject">
 
-                                                <b>@x.Konu</b> @x.icerik.Substring(0, 21).ToString()...
+                                                <b>@x.Konu</b> @x.icerik
 
                                             </td>
 
@@ -363,7 +364,6 @@
                                     }
 
                                 </tbody>
-
 
                             </table>
 
@@ -442,100 +442,56 @@
 
 
     <!-- /.content-wrapper -->
-
-
     <!-- Control Sidebar -->
-
-    <aside class="control-sidebar control-sidebar-dark">
-
-        <!-- Control sidebar content goes here -->
-
-    </aside>
-
     <!-- /.control-sidebar -->
     <!-- ./wrapper -->
     <!-- jQuery -->
 
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap 4 -->
 
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- AdminLTE App -->
 
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
 
     <!-- Page Script -->
 
     <script>
         $(function () {
-
             //Enable check and uncheck all functionality
-
             $('.checkbox-toggle').click(function () {
-
                 var clicks = $(this).data('clicks')
-
                 if (clicks) {
-
                     //Uncheck all checkboxes
-
                     $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-
                     $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
-
                 } else {
-
                     //Check all checkboxes
-
                     $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-
                     $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
-
                 }
-
                 $(this).data('clicks', !clicks)
-
             })
-
-
             //Handle starring for glyphicon and font awesome
-
             $('.mailbox-star').click(function (e) {
-
                 e.preventDefault()
-
                 //detect type
-
                 var $this = $(this).find('a > i')
-
                 var glyph = $this.hasClass('glyphicon')
-
                 var fa = $this.hasClass('fa')
-
-
                 //Switch states
-
                 if (glyph) {
-
                     $this.toggleClass('glyphicon-star')
-
                     $this.toggleClass('glyphicon-star-empty')
-
                 }
-
-
                 if (fa) {
-
                     $this.toggleClass('fa-star')
-
                     $this.toggleClass('fa-star-o')
-
                 }
-
             })
-
         })</script>
 
     <!-- AdminLTE for demo purposes -->
@@ -545,6 +501,3 @@
 </body>
 
 </html>
-
-
-
